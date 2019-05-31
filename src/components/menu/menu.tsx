@@ -101,12 +101,16 @@ export class Menu {
         return (
             <div class="mdc-menu-surface--anchor">
                 <slot name="trigger">{this.renderTrigger()}</slot>
-                <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+                <div onClick={this.handleMenuClick} class="mdc-menu mdc-menu-surface" tabindex="-1">
                     {this.listRenderer.render(this.items, config)}
                 </div>
                 {this.disabled ? <div class="menu-disabled" /> : null}
             </div>
         );
+    }
+
+    private handleMenuClick(event) {
+        event.stopPropagation();
     }
 
     @Watch('open')

@@ -1,3 +1,5 @@
+import { ListItem } from "../list/list-item.types";
+
 export interface Chip<T = any> {
     /**
      * ID of the chip. Must be unique.
@@ -33,4 +35,6 @@ export interface Chip<T = any> {
      * Value of the chip.
      */
     value?: T;
+
+    actions?: ListItem<string>[]
 }
