@@ -18,6 +18,7 @@ module.exports = {
     },
     plugins: [
         '@typescript-eslint',
+        'react',
         'prettier',
         'sonarjs',
         'jsdoc',
@@ -34,7 +35,6 @@ module.exports = {
         quotes: ['error', 'single', { avoidEscape: true }],
         semi: ['error', 'always'],
         'prettier/prettier': 'error',
-        '@typescript-eslint/no-unused-vars-experimental': 'error',
         '@typescript-eslint/array-type': [
             'error',
             {
@@ -46,7 +46,6 @@ module.exports = {
         '@typescript-eslint/prefer-for-of': 'error',
         '@typescript-eslint/prefer-function-type': 'error',
         '@typescript-eslint/unified-signatures': 'error',
-        '@typescript-eslint/no-unused-expressions': 'error',
         'no-unused-vars': 'off',
         camelcase: 'error',
         'comma-dangle': [
@@ -153,6 +152,8 @@ module.exports = {
                 '@stencil/strict-boolean-conditions': 'off',
                 '@stencil/render-returns-host': 'off',
                 '@typescript-eslint/dot-notation': 'error',
+                '@typescript-eslint/no-unused-expressions': 'error',
+                '@typescript-eslint/no-unused-vars-experimental': 'error',
             },
         },
         {
@@ -177,6 +178,8 @@ module.exports = {
                 '@stencil/render-returns-host': 'off',
                 '@stencil/required-jsdoc': 'off',
                 '@typescript-eslint/dot-notation': 'error',
+                '@typescript-eslint/no-unused-expressions': 'error',
+                '@typescript-eslint/no-unused-vars-experimental': 'error',
                 'sonarjs/no-duplicate-string': 'off',
                 'sonarjs/no-identical-functions': 'off',
                 'jsdoc/require-returns': 'off',
@@ -184,6 +187,20 @@ module.exports = {
                 'no-console': 'off',
                 'no-magic-numbers': 'off',
                 'prefer-arrow/prefer-arrow-functions': 'off',
+            },
+        },
+        {
+            files: ['./**/*.mdx'],
+            extends: ['plugin:mdx/recommended'],
+            parserOptions: {
+                parserOption: {
+                    jsx: true,
+                },
+            },
+            rules: {
+                'mdx/no-jsx-html-comments': 'error',
+                'mdx/no-unescaped-entities': 'error',
+                'mdx/no-unused-expressions': 'error',
             },
         },
     ],
