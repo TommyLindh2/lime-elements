@@ -81,6 +81,7 @@ export class FileViewer {
             this.renderImage() ||
             this.renderAudio() ||
             this.renderVideo() ||
+            this.renderOffice() ||
             this.renderObject()
         );
     }
@@ -126,6 +127,19 @@ export class FileViewer {
                     <source src={this.url} type={this.type} />
                     {this.renderNoFileSupportMessage()}
                 </video>
+            );
+        }
+    }
+
+    private renderOffice() {
+        if (this.type === 'application/doc') {
+            const officeViewer =
+                'https://view.officeapps.live.com/op/embed.aspx?src=';
+
+            return (
+                <iframe src={officeViewer + this.url} frameborder='0'>
+                    {this.renderNoFileSupportMessage()}
+                </iframe>
             );
         }
     }
