@@ -1,0 +1,29 @@
+.mdc-text-field {
+    &.lime-text-field--readonly {
+        .mdc-text-field__input {
+            background-color: transparent;
+        }
+
+        .mdc-text-field__input,
+        label.mdc-floating-label {
+            color: $label-color;
+        }
+
+        .mdc-notched-outline__leading,
+        .mdc-notched-outline__notch,
+        .mdc-notched-outline__trailing {
+            border-color: transparent;
+        }
+
+        &.mdc-text-field--invalid {
+            & + .mdc-text-field-helper-line {
+                .mdc-text-field-helper-text--validation-msg {
+                    color: var(--lime-error-text-color);
+                }
+            }
+            .trailing-icon {
+                color: var(--lime-error-text-color);
+            }
+        }
+    }
+}

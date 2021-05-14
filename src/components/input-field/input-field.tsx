@@ -55,17 +55,18 @@ interface LinkProperties {
 })
 export class InputField {
     /**
-     * Disables the input field when `true`. Works exactly the same as
-     * `readonly`. If either property is `true`, the input field will be
-     * disabled.
+     * Disables the input field when `true`,
+     * and visually shows that the field is editable but disabled.
+     * This tells the users that if certain requirements are met,
+     * the fild may become interactable.
      */
     @Prop({ reflect: true })
     public disabled = false;
 
     /**
-     * Disables the input field when `true`. Works exactly the same as
-     * `disabled`. If either property is `true`, the input field will be
-     * disabled.
+     * Disables the input field when `true`.
+     * But shows no visual sign indicating that the input field
+     * is disabled or can ever become interactable.
      */
     @Prop({ reflect: true })
     public readonly = false;
@@ -293,6 +294,7 @@ export class InputField {
         properties.onFocus = this.onFocus;
         properties.onBlur = this.onBlur;
         properties.required = this.required;
+        properties.readonly = this.readonly;
         properties.disabled = this.disabled || this.readonly;
 
         const labelClassList = {
@@ -344,6 +346,7 @@ export class InputField {
             'mdc-text-field': true,
             'mdc-text-field--invalid': this.isInvalid(),
             'mdc-text-field--disabled': this.disabled || this.readonly,
+            'lime-text-field--readonly': this.readonly,
             'mdc-text-field--required': this.required,
             'mdc-text-field--with-trailing-icon': !!this.getTrailingIcon(),
         };
