@@ -57,7 +57,8 @@
     }
 }
 
-:host([type='url']) {
+:host([type='url']),
+:host([type='urlAsText']) {
     .mdc-text-field--with-trailing-icon {
         .trailing-icon {
             limel-icon {
