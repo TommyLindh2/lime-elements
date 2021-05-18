@@ -48,6 +48,13 @@
             }
         }
     }
+    &.mdc-text-field--invalid {
+        i.mdc-text-field__icon.trailing-icon {
+            limel-icon {
+                color: var(--lime-error-text-color);
+            }
+        }
+    }
 }
 
 :host([type='url']) {
